@@ -1,3 +1,4 @@
+pub mod json;
 pub mod parser;
 pub mod schema;
 pub mod table;
