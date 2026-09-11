@@ -3,7 +3,7 @@ use crate::file_parsers::{FileParser, VersionedFile, error::Result};
 pub mod parser;
 pub mod types;
 use parser::parse_psg_bytes;
-use types::PSGFile;
+pub use types::{PSGFile, Group, Passive, Connection};
 
 // TODO: Make version private, add POE1, POE2 consts
 pub struct PSGParser {
