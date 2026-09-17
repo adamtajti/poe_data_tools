@@ -187,11 +187,14 @@ pub fn load_schema(path: &Path) -> Result<SchemaCollection> {
 
 /// Fetch the latest schema collection or fall back to cache
 pub fn fetch_schema(cache_dir: &Path) -> Result<SchemaCollection> {
-    const SCHEMA_URL: &str =
-        "https://github.com/poe-tool-dev/dat-schema/releases/download/latest/schema.min.json";
+    // PoE2 is this tool's target (the PoE1 columns are a subset); the
+    // PoE2 schema carries the columns the generic one lacks (e.g.
+    // `PassiveSkills.UnlockedBy` / `VisibleForAscendancy`, the
+    // Paths-Not-Taken oracle gating added in PoE2 0.3).
+    const SCHEMA_URL: &str = "https://github.com/poe-tool-dev/dat-schema/releases/download/latest/schema-poe2.min.json";
 
     let cache_dir = cache_dir.join("schema");
-    let schema_path = cache_dir.join("schema.min.json");
+    let schema_path = cache_dir.join("schema-poe2.min.json");
     let etag_path = schema_path.with_extension("json.etag");
 
     // File fresh? Use it. A missing file is treated as stale so the schema
