@@ -191,7 +191,8 @@ pub fn fetch_schema(cache_dir: &Path) -> Result<SchemaCollection> {
     // PoE2 schema carries the columns the generic one lacks (e.g.
     // `PassiveSkills.UnlockedBy` / `VisibleForAscendancy`, the
     // Paths-Not-Taken oracle gating added in PoE2 0.3).
-    const SCHEMA_URL: &str = "https://github.com/poe-tool-dev/dat-schema/releases/download/latest/schema-poe2.min.json";
+    const SCHEMA_URL: &str =
+        "https://github.com/poe-tool-dev/dat-schema/releases/download/latest/schema-poe2.min.json";
 
     let cache_dir = cache_dir.join("schema");
     let schema_path = cache_dir.join("schema-poe2.min.json");
